@@ -1,0 +1,18 @@
+# Default owners — every PR requests review from these.
+# Replace USER / TEAM with real GitHub handles once the repo is on GitHub.
+*                              @USER
+
+# Architecture decisions — require maintainer sign-off
+/docs/decisions/               @USER
+
+# NLP pipeline — sensitive; require an NLP reviewer
+/apps/api/src/helpdesk/nlp/    @USER
+/data/golden-tickets/          @USER
+
+# Infrastructure
+/infra/                        @USER
+/.github/                      @USER
+
+# Compliance docs
+/docs/compliance/              @USER
+SECURITY.md                    @USER
