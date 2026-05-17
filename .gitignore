@@ -3,6 +3,9 @@
 Thumbs.db
 desktop.ini
 
+# Local agent/tooling state
+.claude/
+
 # Editors / IDEs
 .idea/
 .vscode/*
