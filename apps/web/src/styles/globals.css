@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 255 255 255;
+  --foreground: 17 24 39;
+  --muted: 243 244 246;
+  --border: 229 231 235;
+}
+
+.dark {
+  --background: 17 24 39;
+  --foreground: 243 244 246;
+  --muted: 31 41 55;
+  --border: 55 65 81;
+}
+
+html {
+  background-color: rgb(var(--background));
+  color: rgb(var(--foreground));
+}
+
+[dir='rtl'] body {
+  font-family: var(--font-ibm-plex-arabic), Tajawal, Cairo, sans-serif;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+/* Focus ring tuned for both LTR and RTL */
+:focus-visible {
+  outline: 2px solid rgb(16 185 129);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
