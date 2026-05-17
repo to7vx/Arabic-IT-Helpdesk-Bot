@@ -1,0 +1,80 @@
+{
+  "common": {
+    "appName": "Arabic IT Helpdesk",
+    "tagline": "Open-source bilingual ticketing built for the GCC",
+    "search": "Search",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "loading": "Loading…",
+    "error": "Something went wrong",
+    "tryAgain": "Try again",
+    "languageToggle": "العربية",
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "register": "Create account"
+  },
+  "nav": {
+    "tickets": "Tickets",
+    "kb": "Knowledge base",
+    "dashboard": "Dashboard",
+    "admin": "Admin",
+    "settings": "Settings"
+  },
+  "home": {
+    "heroTitle": "An IT helpdesk that speaks your language",
+    "heroBody": "Arabic-first ticketing with dialect-aware NLP, bilingual UI, and PDPL-friendly self-hosting.",
+    "ctaPrimary": "Get started",
+    "ctaSecondary": "Read the docs",
+    "featureNlpTitle": "Arabic NLP first",
+    "featureNlpBody": "MARBERT, BGE-M3, and CAMeL Tools handle MSA, Gulf, Egyptian, Levantine, plus Arabizi and code-switching.",
+    "featureBilingualTitle": "True bilingual UX",
+    "featureBilingualBody": "Every page works in Arabic (RTL) and English (LTR) with the same polish.",
+    "featurePdplTitle": "PDPL-aware",
+    "featurePdplBody": "Consent ledger, DSR endpoints, cross-border transfer log, and an in-Kingdom default mode."
+  },
+  "tickets": {
+    "title": "Tickets",
+    "newTicket": "New ticket",
+    "subject": "Subject",
+    "describe": "Describe your issue",
+    "submit": "Submit ticket",
+    "noTickets": "You have no tickets yet.",
+    "status": {
+      "new": "New",
+      "open": "Open",
+      "pending": "Pending",
+      "on_hold": "On hold",
+      "resolved": "Resolved",
+      "closed": "Closed"
+    },
+    "priority": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High",
+      "urgent": "Urgent"
+    }
+  },
+  "kb": {
+    "title": "Knowledge base",
+    "searchPlaceholder": "Search articles…",
+    "noResults": "No articles match your search.",
+    "helpful": "Was this helpful?",
+    "yes": "Yes",
+    "no": "No"
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "email": "Email",
+    "password": "Password",
+    "totp": "Authenticator code",
+    "register": "Create an account",
+    "forgotPassword": "Forgot password?"
+  },
+  "errors": {
+    "unauthorized": "Please sign in to continue.",
+    "forbidden": "You do not have permission for this action.",
+    "notFound": "We could not find what you were looking for."
+  }
+}
