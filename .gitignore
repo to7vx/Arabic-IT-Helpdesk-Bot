@@ -6,6 +6,9 @@ desktop.ini
 # Local agent/tooling state
 .claude/
 
+# Private working files (notes, source prompts, scratch). Never committed.
+.private/
+
 # Editors / IDEs
 .idea/
 .vscode/*

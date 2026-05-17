@@ -123,4 +123,3 @@ An **open-source, self-hosted IT helpdesk** that treats Arabic — including Sau
 
 * [ADRs index](decisions/README.md)
 * [Research notes](research/README.md)
-* [Master prompt](../ARABIC_IT_HELPDESK_BOT_PROMPT.md) (source spec)

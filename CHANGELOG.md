@@ -87,13 +87,8 @@ From the first tagged release onward, this file is maintained by `semantic-relea
 - **Flagship `docs/guides/arabic-nlp.md`** (~2300 words, the deep-dive).
 - `docs/guides/self-hosting.md`.
 
-**Phase 10 — launch collateral**
-- `docs/blog/launch.md` + `launch.ar.md`.
-- `docs/blog/social-drafts.md` (LinkedIn × 6, X thread, Show HN, Product Hunt, awesome-list submissions).
-- `docs/blog/demo-script.md` (3:30 video storyboard).
-
-**Phase 11 — readiness**
-- `FINAL_REPORT.md` honest accounting of what shipped, what did not, and the prioritized next steps.
+**Phase 10 — blog post**
+- `docs/blog/launch.md` and `launch.ar.md` (bilingual launch essay).
 
 ### Known limitations at v0.1
 - Category classifier is a keyword baseline; MARBERT v1 head is the next major piece.
