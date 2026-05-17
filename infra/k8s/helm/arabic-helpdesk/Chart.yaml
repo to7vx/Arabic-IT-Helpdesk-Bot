@@ -1,0 +1,18 @@
+apiVersion: v2
+name: arabic-helpdesk
+description: Open-source Arabic IT helpdesk bot — bilingual UI, Arabic NLP, PDPL-aware.
+type: application
+version: 0.1.0
+appVersion: "0.1.0"
+home: https://arabic-helpdesk.dev
+sources:
+  - https://github.com/USER/arabic-helpdesk-bot
+maintainers:
+  - name: Arabic IT Helpdesk Bot contributors
+keywords:
+  - helpdesk
+  - arabic
+  - nlp
+  - pdpl
+  - ticketing
+icon: https://arabic-helpdesk.dev/icon.png

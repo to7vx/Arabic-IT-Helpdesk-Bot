@@ -1,0 +1,67 @@
+# Default values for the arabic-helpdesk Helm chart.
+# Override per environment with `helm upgrade -f values-prod.yaml`.
+
+image:
+  registry: ghcr.io
+  repository: USER/arabic-helpdesk-bot
+  tag: "0.1.0"
+  pullPolicy: IfNotPresent
+  pullSecrets: []
+
+api:
+  replicas: 2
+  resources:
+    requests: { cpu: "200m", memory: "512Mi" }
+    limits:   { cpu: "1",    memory: "1Gi" }
+  service:
+    type: ClusterIP
+    port: 8000
+  env:
+    LLM_PROVIDER: disabled
+    APP_ENV: production
+
+worker:
+  replicas: 1
+  concurrency: 2
+  resources:
+    requests: { cpu: "200m", memory: "1Gi" }
+    limits:   { cpu: "1",    memory: "2Gi" }
+
+web:
+  replicas: 2
+  resources:
+    requests: { cpu: "100m", memory: "256Mi" }
+    limits:   { cpu: "500m", memory: "512Mi" }
+  service:
+    type: ClusterIP
+    port: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: helpdesk.example.com
+  tls: true
+  clusterIssuer: letsencrypt-prod
+
+postgres:
+  enabled: true
+  storageClass: ""
+  storage: 20Gi
+
+redis:
+  enabled: true
+  storage: 5Gi
+
+qdrant:
+  enabled: true
+  storage: 20Gi
+
+minio:
+  enabled: true
+  storage: 50Gi
+
+externalSecrets:
+  # If true, expect a Secret named "arabic-helpdesk-env" to already exist
+  # (e.g. created by external-secrets-operator). Otherwise we create one
+  # from .env contents in a plain Secret resource.
+  enabled: false
