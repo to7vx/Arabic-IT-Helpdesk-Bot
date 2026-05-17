@@ -1,0 +1,158 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Lint everything
+  # ---------------------------------------------------------------------------
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - run: pnpm install --frozen-lockfile
+
+      - uses: astral-sh/setup-uv@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - working-directory: apps/api
+        run: uv sync --all-extras
+
+      - name: Ruff
+        working-directory: apps/api
+        run: uv run ruff check .
+
+      - name: Ruff format check
+        working-directory: apps/api
+        run: uv run ruff format --check .
+
+      - name: mypy
+        working-directory: apps/api
+        run: uv run mypy src
+
+      - name: Prettier
+        run: pnpm exec prettier --check "**/*.{ts,tsx,js,jsx,json,md,yml,yaml}"
+
+      - name: ESLint
+        run: pnpm -r lint
+
+      - name: Bilingual messages parity
+        run: |
+          test -f scripts/check_messages.py && python scripts/check_messages.py || \
+            echo "(scripts/check_messages.py will be added in Phase 5)"
+
+      - name: Codespell
+        uses: codespell-project/actions-codespell@v2
+        with:
+          ignore_words_file: .codespellignore
+          skip: "*.po,*.lock,*.svg,data/**"
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITLEAKS_LICENSE: ${{ secrets.GITLEAKS_LICENSE }}
+
+  # ---------------------------------------------------------------------------
+  # Backend tests
+  # ---------------------------------------------------------------------------
+  test-api:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: helpdesk
+          POSTGRES_PASSWORD: helpdesk
+          POSTGRES_DB: helpdesk_test
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U helpdesk"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+      redis:
+        image: redis:7
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+asyncpg://helpdesk:helpdesk@localhost:5432/helpdesk_test
+      REDIS_URL: redis://localhost:6379/0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - working-directory: apps/api
+        run: uv sync --all-extras
+      - name: pytest
+        working-directory: apps/api
+        run: uv run pytest -q --cov=helpdesk --cov-report=xml --cov-fail-under=85
+      - uses: codecov/codecov-action@v4
+        with:
+          files: apps/api/coverage.xml
+          flags: api
+
+  # ---------------------------------------------------------------------------
+  # Frontend tests
+  # ---------------------------------------------------------------------------
+  test-web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+      - run: pnpm install --frozen-lockfile
+      - name: Vitest
+        working-directory: apps/web
+        run: pnpm test -- --run --coverage
+      - uses: codecov/codecov-action@v4
+        with:
+          files: apps/web/coverage/coverage-final.json
+          flags: web
+
+  # ---------------------------------------------------------------------------
+  # NLP eval gate (only when NLP files change)
+  # ---------------------------------------------------------------------------
+  evals:
+    runs-on: ubuntu-latest
+    if: |
+      contains(github.event.pull_request.labels.*.name, 'run-evals') ||
+      contains(toJson(github.event.commits), 'apps/api/src/helpdesk/nlp/')
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - working-directory: apps/api
+        run: uv sync --all-extras
+      - name: Run NLP evals against thresholds
+        working-directory: apps/api
+        run: uv run python -m helpdesk.nlp.evals.run_eval --enforce-thresholds
