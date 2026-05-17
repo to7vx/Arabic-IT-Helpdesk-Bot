@@ -58,7 +58,7 @@ jobs:
 
       - name: Build and push (skip on missing Dockerfile)
         if: hashFiles(matrix.dockerfile) != ''
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7
         with:
           context: ${{ matrix.context }}
           file: ${{ matrix.dockerfile }}
