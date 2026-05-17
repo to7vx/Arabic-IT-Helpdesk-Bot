@@ -1,0 +1,20 @@
+{"id": "g-001", "text": "السلام عليكم، الطابعة في مكتبي ما تطبع. حاولت إعادة التشغيل وما زالت لا تستجيب. الرقم: HP-1234", "category": "hardware-printer", "urgent": false, "dialect": "saudi"}
+{"id": "g-002", "text": "Every time I open Outlook 2024 it crashes within 5 seconds. Reinstalled twice.", "category": "email-outlook", "urgent": false, "dialect": "msa"}
+{"id": "g-003", "text": "ابغى اشتغل عن بُعد بس الـ VPN يطلع لي خطأ 720. جربت من جوال وكمبيوتر.", "category": "network-vpn", "urgent": false, "dialect": "saudi"}
+{"id": "g-004", "text": "نسيت كلمة السر لحسابي. ايميلي: layla.user@example.com", "category": "account-password", "urgent": false, "dialect": "msa"}
+{"id": "g-005", "text": "URGENT: my TOTP app was on a phone that's now broken. I fly tomorrow.", "category": "account-mfa", "urgent": true, "dialect": "msa"}
+{"id": "g-006", "text": "في اجتماع مهم بعد ساعة، Teams ما يحس بالكاميرا. ويندوز 11.", "category": "collab-teams", "urgent": true, "dialect": "saudi"}
+{"id": "g-007", "text": "msh 3aref el password bta3 el wifi el jdeed, plz send it", "category": "network-wifi", "urgent": false, "dialect": "arabizi"}
+{"id": "g-008", "text": "Spam attack on finance team mailboxes — phishing email with malicious xlsx. Need block + investigation.", "category": "security-phishing", "urgent": true, "dialect": "msa"}
+{"id": "g-009", "text": "أحتاج صلاحية قراءة على مجلد المالية على شيربوينت. المدير وافق بالإيميل المرفق.", "category": "account-access", "urgent": false, "dialect": "msa"}
+{"id": "g-010", "text": "SAP login error — message code MSG-3055. Cleared cache, no luck.", "category": "erp-sap", "urgent": false, "dialect": "msa"}
+{"id": "g-011", "text": "لاب توب جديد ما يشحن. البطارية على 12% ومتوقفه عن الزياده.", "category": "hardware-laptop", "urgent": true, "dialect": "saudi"}
+{"id": "g-012", "text": "Need access to the shared SharePoint folder for the procurement team please.", "category": "account-access", "urgent": false, "dialect": "msa"}
+{"id": "g-013", "text": "الواي فاي عندنا في الدور الخامس ضعيف جدًا — لا أستطيع الانضمام للاجتماعات.", "category": "network-wifi", "urgent": false, "dialect": "msa"}
+{"id": "g-014", "text": "Phishing email impersonating IT — staff are clicking. Need bulk block immediately. 🚨", "category": "security-phishing", "urgent": true, "dialect": "msa"}
+{"id": "g-015", "text": "Zoom audio cuts out every few minutes during customer calls. Headset is new.", "category": "collab-zoom", "urgent": false, "dialect": "msa"}
+{"id": "g-016", "text": "تم رفض دخولي على ساب فجأة بعد تحديث الصباح. ضروري — اجتماع مع المدير المالي بعد ساعة. عاجل!", "category": "erp-sap", "urgent": true, "dialect": "msa"}
+{"id": "g-017", "text": "New laptop screen flickers when running on battery only. Worked at the dock yesterday.", "category": "hardware-laptop", "urgent": false, "dialect": "msa"}
+{"id": "g-018", "text": "اوتلوك يتعطل عند بدء التشغيل، جربت الإصلاح السريع.", "category": "email-outlook", "urgent": false, "dialect": "msa"}
+{"id": "g-019", "text": "MFA reset asap — locked out and customer-facing in 30 min", "category": "account-mfa", "urgent": true, "dialect": "msa"}
+{"id": "g-020", "text": "Need a new IP phone — old one stopped working today.", "category": "telephony-handset", "urgent": false, "dialect": "msa"}

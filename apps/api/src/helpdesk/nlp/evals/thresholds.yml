@@ -1,0 +1,14 @@
+# NLP eval thresholds enforced in CI. Edits here are reviewed.
+# The v0 baseline is intentionally permissive; thresholds tighten as
+# the model evolves and the golden set grows.
+classification:
+  macro_f1_min: 0.55
+  per_category_min_recall: 0.40
+urgency:
+  recall_min: 0.70
+retrieval:
+  mrr_at_10_min: 0.30
+  recall_at_5_min: 0.40
+latency_ms:
+  classify_p95: 800
+  suggest_kb_p95: 1500
