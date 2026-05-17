@@ -1,0 +1,32 @@
+Arabic IT Helpdesk Bot
+Copyright 2026 Arabic IT Helpdesk Bot contributors
+
+This product includes software developed by third parties:
+
+* CAMeL Tools — Apache License 2.0
+  https://github.com/CAMeL-Lab/camel_tools
+
+* Farasa — for non-commercial research use unless commercial license obtained
+  https://farasa.qcri.org/
+
+* MARBERT, AraBERT, CAMeLBERT — Apache License 2.0
+  https://huggingface.co/UBC-NLP/MARBERT
+  https://huggingface.co/aubmindlab/bert-base-arabertv02
+  https://huggingface.co/CAMeL-Lab
+
+* BGE-M3 and BGE Reranker — MIT License
+  https://huggingface.co/BAAI/bge-m3
+  https://huggingface.co/BAAI/bge-reranker-v2-m3
+
+* Jais and Jais-chat — Apache License 2.0
+  https://huggingface.co/inception-mbzuai/jais-30b-chat-v3
+
+* IBM Plex Sans Arabic — SIL Open Font License 1.1
+
+* Tajawal — SIL Open Font License 1.1
+
+* Cairo — SIL Open Font License 1.1
+
+For a full list of upstream dependencies and their licenses see
+the generated files apps/api/THIRD_PARTY_NOTICES and apps/web/THIRD_PARTY_NOTICES
+(produced by `make notices`).
