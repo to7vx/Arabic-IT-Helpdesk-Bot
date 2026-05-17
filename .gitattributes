@@ -1,0 +1,47 @@
+# Normalize line endings — important on Windows contributors
+* text=auto eol=lf
+
+# Treat shell, python, JS and config as text
+*.sh        text eol=lf
+*.py        text eol=lf
+*.ts        text eol=lf
+*.tsx       text eol=lf
+*.js        text eol=lf
+*.jsx       text eol=lf
+*.json      text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.toml      text eol=lf
+*.md        text eol=lf
+*.html      text eol=lf
+*.css       text eol=lf
+
+# Windows scripts keep CRLF
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+*.ps1       text eol=crlf
+
+# Binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.svg       text eol=lf
+*.ico       binary
+*.woff      binary
+*.woff2     binary
+*.ttf       binary
+*.otf       binary
+*.pdf       binary
+*.onnx      binary
+*.safetensors binary
+*.bin       binary
+
+# Arabic-language data files: ensure UTF-8, no BOM, LF
+data/**/*.md     text eol=lf working-tree-encoding=UTF-8
+data/**/*.json   text eol=lf working-tree-encoding=UTF-8
+data/**/*.jsonl  text eol=lf working-tree-encoding=UTF-8
+
+# Diff hints for generated files
+pnpm-lock.yaml   -diff
+uv.lock          -diff

@@ -1,0 +1,12 @@
+node_modules
+.next
+.turbo
+out
+dist
+build
+coverage
+pnpm-lock.yaml
+uv.lock
+data/
+docs/decisions/
+apps/api/src/helpdesk/nlp/evals/golden_set.jsonl

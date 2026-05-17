@@ -1,0 +1,28 @@
+{
+  "name": "arabic-helpdesk-bot",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Open-source Arabic-language IT helpdesk bot — bilingual UI, Arabic NLP, PDPL-aware self-hosted ticketing.",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.12.0",
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "pnpm -r --filter ./apps/web --filter ./packages/* build",
+    "dev": "pnpm --filter ./apps/web dev",
+    "lint": "pnpm -r lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml}\"",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "prepare": "command -v pre-commit >/dev/null 2>&1 && pre-commit install || true"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}
