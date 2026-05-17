@@ -71,8 +71,8 @@ test-results/
 *.bin
 *.pt
 *.pth
-models/
-checkpoints/
+/models/
+/checkpoints/
 wandb/
 mlruns/
 .cache/huggingface/
