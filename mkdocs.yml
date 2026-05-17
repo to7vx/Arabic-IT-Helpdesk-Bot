@@ -1,0 +1,81 @@
+site_name: Arabic IT Helpdesk Bot
+site_description: Open-source bilingual IT helpdesk with Arabic NLP, PDPL-aware deployment.
+site_url: https://arabic-helpdesk.dev
+repo_url: https://github.com/USER/arabic-helpdesk-bot
+repo_name: USER/arabic-helpdesk-bot
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; 2026 Arabic IT Helpdesk Bot contributors. Apache-2.0.
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: green
+      accent: green
+      toggle: { icon: material/weather-night, name: Dark }
+    - scheme: slate
+      primary: green
+      accent: green
+      toggle: { icon: material/weather-sunny, name: Light }
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.indexes
+    - content.code.copy
+    - content.action.edit
+    - search.suggest
+    - search.highlight
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - mermaid2
+
+markdown_extensions:
+  - admonition
+  - footnotes
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.highlight: { anchor_linenums: true }
+  - pymdownx.superfences:
+      custom_fences:
+        - { name: mermaid, class: mermaid, format: !!python/name:mermaid2.fence_mermaid }
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed: { alternate_style: true }
+  - pymdownx.tasklist: { custom_checkbox: true }
+
+extra:
+  social:
+    - { icon: fontawesome/brands/github, link: https://github.com/USER/arabic-helpdesk-bot }
+  alternate:
+    - { name: English, link: /, lang: en }
+    - { name: العربية, link: /ar/, lang: ar }
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - Installation: getting-started/installation.md
+      - Quickstart: getting-started/quickstart.md
+      - Deployment: getting-started/deployment.md
+  - Architecture:
+      - Overview: architecture/overview.md
+      - Database: architecture/db.md
+  - Guides:
+      - Arabic NLP deep-dive: guides/arabic-nlp.md
+      - Self-hosting: guides/self-hosting.md
+  - Decisions: decisions/README.md
+  - Research: research/README.md
+  - Security:
+      - Threat model: security/threat-model.md
+      - OWASP Top 10: security/owasp-top-10.md
+  - Compliance:
+      - PDPL checklist: compliance/pdpl-checklist.md
+  - PRD: PRD.md
